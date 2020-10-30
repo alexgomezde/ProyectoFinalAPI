@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace ProyectoFinalAPI.Models
+namespace WebApiSegura.Models
 {
     public class Reserva
     {
@@ -16,5 +16,6 @@ namespace ProyectoFinalAPI.Models
         public DateTime RES_FECHA_SALIDA { get; set; }
         public DateTime RES_FECHA_VUELO { get; set; }
         public string RES_ESTADO { get; set; }
+
     }
 }
