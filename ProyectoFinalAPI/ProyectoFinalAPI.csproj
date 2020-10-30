@@ -174,8 +174,10 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
+    <Compile Include="Controllers\AerolineaController.cs" />
     <Compile Include="Controllers\AeropuertoController.cs" />
     <Compile Include="Controllers\AsientoController.cs" />
+    <Compile Include="Controllers\AvionController.cs" />
     <Compile Include="Controllers\CustomersController.cs" />
     <Compile Include="Controllers\FacturaController.cs" />
     <Compile Include="Controllers\HabitacionController.cs" />
@@ -190,8 +192,10 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Aerolinea.cs" />
     <Compile Include="Models\Aeropuerto.cs" />
     <Compile Include="Models\Asiento.cs" />
+    <Compile Include="Models\Avion.cs" />
     <Compile Include="Models\Factura.cs" />
     <Compile Include="Models\Habitacion.cs" />
     <Compile Include="Models\Hotel.cs" />
