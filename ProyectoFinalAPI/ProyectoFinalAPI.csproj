@@ -201,7 +201,7 @@
     <Compile Include="Models\Habitacion.cs" />
     <Compile Include="Models\Hotel.cs" />
     <Compile Include="Models\LoginRequest.cs" />
-    <Compile Include="Models\PAGO.cs" />
+    <Compile Include="Models\Pago.cs" />
     <Compile Include="Models\Reserva.cs" />
     <Compile Include="Models\Usuario.cs" />
     <Compile Include="Models\Vuelo.cs" />

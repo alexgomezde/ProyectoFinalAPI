@@ -12,7 +12,7 @@ namespace WebApplication1.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class PAGO
+    public partial class Pago
     {
         public int PAG_CODIGO { get; set; }
         public int RES_CODIGO { get; set; }

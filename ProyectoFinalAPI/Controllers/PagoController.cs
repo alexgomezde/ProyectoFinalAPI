@@ -21,7 +21,7 @@ namespace WebApplication1.Controllers
 
         public IHttpActionResult getId(int id)
         {
-            PAGO pago = new PAGO();
+            Pago pago = new Pago();
 
             try
             {
@@ -63,7 +63,7 @@ namespace WebApplication1.Controllers
         [HttpGet]
         public IHttpActionResult GetAll()
         {
-            List<PAGO> pagos = new List<PAGO>();
+            List<Pago> pagos = new List<Pago>();
 
             try
             {
@@ -81,7 +81,7 @@ namespace WebApplication1.Controllers
 
                     while (sqlDataReader.Read())
                     {
-                        PAGO pago = new PAGO()
+                        Pago pago = new Pago()
                         {
                             PAG_CODIGO = sqlDataReader.GetInt32(0),
                             RES_CODIGO = sqlDataReader.GetInt32(1),
@@ -108,7 +108,7 @@ namespace WebApplication1.Controllers
 
         [HttpPost]
         [Route("ingresar")]
-        public IHttpActionResult Ingresar(PAGO pago)
+        public IHttpActionResult Ingresar(Pago pago)
         {
             if (pago == null)
                 return BadRequest();
@@ -123,7 +123,7 @@ namespace WebApplication1.Controllers
 
 
         }
-        private bool RegistrarHabitacion(PAGO pago)
+        private bool RegistrarHabitacion(Pago pago)
         {
             bool resultado = false;
 
@@ -169,7 +169,7 @@ namespace WebApplication1.Controllers
 
         [HttpPut]
 
-        public IHttpActionResult Put(PAGO pago)
+        public IHttpActionResult Put(Pago pago)
         {
             if (pago == null)
                 return BadRequest();
@@ -184,7 +184,7 @@ namespace WebApplication1.Controllers
 
 
         }
-        private bool ActualizarHabitacion(PAGO pago)
+        private bool ActualizarHabitacion(Pago pago)
         {
             bool resultado = false;
 
