@@ -56,8 +56,8 @@ namespace WebApiSegura.Controllers
 
 
         [HttpGet]
-        [Route("GetAll")]
-        public IHttpActionResult GetAll(int id)
+        //[Route("GetAll")]
+        public IHttpActionResult GetAll()
         {
             List<Pais> paises = new List<Pais>();
 
@@ -68,9 +68,9 @@ namespace WebApiSegura.Controllers
                  SqlConnection(ConfigurationManager.ConnectionStrings["RESERVAS"].ConnectionString))
                 {
                     SqlCommand sqlCommand = new SqlCommand(@"SELECT PAIS_CODIGO, PAIS_NOMBRE
-                                                            FROM PAIS WHERE PAIS_CODIGO = @PAIS_CODIGO", sqlConnection);
+                                                            FROM PAIS", sqlConnection);
 
-                    sqlCommand.Parameters.AddWithValue("@PAIS_CODIGO", id);
+                    //sqlCommand.Parameters.AddWithValue("@PAIS_CODIGO", id);
 
                     sqlConnection.Open();
 
@@ -96,11 +96,6 @@ namespace WebApiSegura.Controllers
             }
             return Ok(paises);
         }
-
-
-
-
-
 
         [HttpPost]
         [Route("Ingresar")]

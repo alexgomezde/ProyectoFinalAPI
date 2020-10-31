@@ -58,8 +58,8 @@ namespace WebApiSegura.Controllers
 
 
         [HttpGet]
-        [Route("GetAll")]
-        public IHttpActionResult GetAll(int id)
+       // [Route("GetAll")]
+        public IHttpActionResult GetAll()
         {
             List<Tarifa> tarifas = new List<Tarifa>();
 
@@ -70,9 +70,9 @@ namespace WebApiSegura.Controllers
                  SqlConnection(ConfigurationManager.ConnectionStrings["RESERVAS"].ConnectionString))
                 {
                     SqlCommand sqlCommand = new SqlCommand(@"SELECT TAR_CODIGO, TAR_CLASE, TAR_PRECIO, TAR_IMPUESTO, TAR_ESTADO
-                                                            FROM TARIFA WHERE TAR_CODIGO = @TAR_CODIGO", sqlConnection);
+                                                            FROM TARIFA", sqlConnection);
 
-                    sqlCommand.Parameters.AddWithValue("@TAR_CODIGO", id);
+                   // sqlCommand.Parameters.AddWithValue("@TAR_CODIGO", id);
 
                     sqlConnection.Open();
 

@@ -71,9 +71,9 @@ namespace WebApplication1.Controllers
                    SqlConnection(ConfigurationManager.ConnectionStrings["RESERVAS"].ConnectionString))
                 {
                     SqlCommand sqlCommand = new SqlCommand(@"SELECT PAG_CODIGO, RES_CODIGO, PAG_FECHA, PAG_TIPO,TPA_CODIGO,PAG_ESTADO
-                                                    FROM  PAGO where PAG_CODIGO = @PAG_CODIGO", sqlConnection);
+                                                    FROM  PAGO", sqlConnection);
 
-                    // sqlCommand.Parameters.AddWithValue("@HOT_CODIGO", id);
+                    
 
                     sqlConnection.Open();
 
@@ -168,7 +168,7 @@ namespace WebApplication1.Controllers
 
 
         [HttpPut]
-
+        [Route("Actualizar")]
         public IHttpActionResult Put(Pago pago)
         {
             if (pago == null)

@@ -56,8 +56,8 @@ namespace WebApiSegura.Controllers
 
 
         [HttpGet]
-        [Route("GetAll")]
-        public IHttpActionResult GetAll(int id)
+        //[Route("GetAll")]
+        public IHttpActionResult GetAll()
         {
             List<TipoPago> tipoPagos = new List<TipoPago>();
 
@@ -68,9 +68,9 @@ namespace WebApiSegura.Controllers
                  SqlConnection(ConfigurationManager.ConnectionStrings["RESERVAS"].ConnectionString))
                 {
                     SqlCommand sqlCommand = new SqlCommand(@"SELECT TPA_CODIGO, TPA_DESCRIPCION
-                                                            FROM TIPO_PAGO WHERE TPA_CODIGO = @TPA_CODIGO", sqlConnection);
+                                                            FROM TIPO_PAGO", sqlConnection);
 
-                    sqlCommand.Parameters.AddWithValue("@TPA_CODIGO", id);
+                   // sqlCommand.Parameters.AddWithValue("@TPA_CODIGO");
 
                     sqlConnection.Open();
 

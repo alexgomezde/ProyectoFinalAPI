@@ -54,7 +54,8 @@ namespace ProyectoFinalAPI.Controllers
 
 
         [HttpGet]
-        public IHttpActionResult GetAll(int id)
+
+        public IHttpActionResult GetAll()
         {
             List<Asiento> asientos = new List<Asiento>();
 
@@ -64,10 +65,9 @@ namespace ProyectoFinalAPI.Controllers
                  SqlConnection(ConfigurationManager.ConnectionStrings["RESERVAS"].ConnectionString))
                 {
                     SqlCommand sqlCommand = new SqlCommand(@"SELECT ASI_CODIGO, ASI_LETRA, ASI_FILA, ASI_ESTADO 
-                    FROM ASIENTO WHERE
-                    ASI_CODIGO = @ASI_CODIGO", sqlConnection);
+                    FROM ASIENTO", sqlConnection);
 
-                    sqlCommand.Parameters.AddWithValue("@ASI_CODIGO", id);
+                    //sqlCommand.Parameters.AddWithValue("@ASI_CODIGO", id);
 
                     sqlConnection.Open();
 

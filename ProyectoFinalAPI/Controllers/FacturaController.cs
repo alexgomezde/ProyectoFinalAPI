@@ -54,7 +54,7 @@ namespace ProyectoFinalAPI.Controllers
 
 
         [HttpGet]
-        public IHttpActionResult GetAll(int id)
+        public IHttpActionResult GetAll()
         {
             List<Factura> facturas = new List<Factura>();
 
@@ -64,10 +64,9 @@ namespace ProyectoFinalAPI.Controllers
                  SqlConnection(ConfigurationManager.ConnectionStrings["RESERVAS"].ConnectionString))
                 {
                     SqlCommand sqlCommand = new SqlCommand(@"SELECT FAC_CODIGO, PAG_CODIGO, FAC_COMPROBANTE, FAC_ESTADO 
-                    FROM FACTURA WHERE
-                    FAC_CODIGO = @FAC_CODIGO", sqlConnection);
+                    FROM FACTURA", sqlConnection);
 
-                    sqlCommand.Parameters.AddWithValue("@FAC_CODIGO", id);
+                    //sqlCommand.Parameters.AddWithValue("@FAC_CODIGO", id);
 
                     sqlConnection.Open();
 

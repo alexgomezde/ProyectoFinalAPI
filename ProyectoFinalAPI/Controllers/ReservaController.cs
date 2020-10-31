@@ -60,8 +60,8 @@ namespace WebApiSegura.Controllers
 
 
         [HttpGet]
-        [Route("GetAll")]
-        public IHttpActionResult GetAll(int id)
+        //[Route("GetAll")]
+        public IHttpActionResult GetAll()
         {
             List<Reserva> reservas = new List<Reserva>();
 
@@ -73,9 +73,9 @@ namespace WebApiSegura.Controllers
                 {
                     SqlCommand sqlCommand = new SqlCommand(@"SELECT RES_CODIGO, USU_CODIGO, HAB_CODIGO, VUE_CODIGO, RES_COSTO,
                                                             RES_FECHA_INGRESO, RES_FECHA_SALIDA, RES_FECHA_VUELO, RES_ESTADO
-                                                            FROM  RESERVA WHERE RES_CODIGO = @RES_CODIGO", sqlConnection);
+                                                            FROM  RESERVA", sqlConnection);
 
-                    sqlCommand.Parameters.AddWithValue("@RES_CODIGO", id);
+                    //sqlCommand.Parameters.AddWithValue("@RES_CODIGO", id);
 
                     sqlConnection.Open();
 
