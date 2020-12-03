@@ -160,7 +160,7 @@ namespace WebApiSegura.Controllers
         }
 
         [HttpPut]
-        [Route("Actualizar")]
+        //[Route("Actualizar")]
         public IHttpActionResult Put(Reserva reserva)
         {
             if (reserva == null)

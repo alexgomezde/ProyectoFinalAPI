@@ -165,7 +165,7 @@ namespace WebApplication1.Controllers
 
 
         [HttpPut]
-        [Route("Actualizar")]
+       // [Route("Actualizar")]
         public IHttpActionResult Put(Pago pago)
         {
             if (pago == null)

@@ -133,7 +133,7 @@ namespace WebApiSegura.Controllers
         }
 
         [HttpPut]
-        [Route("Actualizar")]
+        //[Route("Actualizar")]
         public IHttpActionResult Put(Pais pais)
         {
             if (pais == null)

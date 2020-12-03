@@ -138,7 +138,7 @@ namespace WebApiSegura.Controllers
         }
 
         [HttpPut]
-        [Route("Actualizar")]
+        //[Route("Actualizar")]
         public IHttpActionResult Put(TipoPago tipoPago)
         {
             if (tipoPago == null)
