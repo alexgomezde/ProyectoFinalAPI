@@ -42,9 +42,9 @@ namespace WebApplication1.Controllers
                         pago.PAG_CODIGO = sqlDataReader.GetInt32(0);
                         pago.RES_CODIGO = sqlDataReader.GetInt32(1);
                         pago.PAG_FECHA = sqlDataReader.GetDateTime(2);
-                        pago.PAG_TIPO = sqlDataReader.GetString(3);
-                        pago.TPA_CODIGO = sqlDataReader.GetInt32(4);
-                        pago.PAG_ESTADO = sqlDataReader.GetString(5);
+            
+                        pago.TPA_CODIGO = sqlDataReader.GetInt32(3);
+                        pago.PAG_ESTADO = sqlDataReader.GetString(4);
 
                         
                     }
@@ -70,10 +70,10 @@ namespace WebApplication1.Controllers
                 using (SqlConnection sqlConnection = new
                    SqlConnection(ConfigurationManager.ConnectionStrings["RESERVAS"].ConnectionString))
                 {
-                    SqlCommand sqlCommand = new SqlCommand(@"SELECT PAG_CODIGO, RES_CODIGO, PAG_FECHA, PAG_TIPO,TPA_CODIGO,PAG_ESTADO
+                    SqlCommand sqlCommand = new SqlCommand(@"SELECT PAG_CODIGO, RES_CODIGO, PAG_FECHA,TPA_CODIGO,PAG_ESTADO
                                                     FROM  PAGO", sqlConnection);
 
-                    
+
 
                     sqlConnection.Open();
 
@@ -86,10 +86,9 @@ namespace WebApplication1.Controllers
                             PAG_CODIGO = sqlDataReader.GetInt32(0),
                             RES_CODIGO = sqlDataReader.GetInt32(1),
                             PAG_FECHA = sqlDataReader.GetDateTime(2),
-                            PAG_TIPO = sqlDataReader.GetString(3),
-                            TPA_CODIGO = sqlDataReader.GetInt32(4),
-                            PAG_ESTADO = sqlDataReader.GetString(5),
-                            
+                            TPA_CODIGO = sqlDataReader.GetInt32(3),
+                            PAG_ESTADO = sqlDataReader.GetString(4),
+
                         };
                         pagos.Add(pago);
 
@@ -131,18 +130,17 @@ namespace WebApplication1.Controllers
                     SqlConnection(ConfigurationManager.ConnectionStrings["RESERVAS"].ConnectionString))
             {
                 SqlCommand sqlCommand = new SqlCommand(
-                    @"INSERT INTO PAGO (RES_CODIGO, PAG_FECHA,PAG_TIPO,TPA_CODIGO,PAG_ESTADO) VALUES(
-                            @RES_CODIGO,@PAG_FECHA, @PAG_TIPO,@TPA_CODIGO,
+                    @"INSERT INTO PAGO (RES_CODIGO, PAG_FECHA,TPA_CODIGO,PAG_ESTADO) VALUES(
+                            @RES_CODIGO,@PAG_FECHA,@TPA_CODIGO,
                            @PAG_ESTADO)", sqlConnection);
 
 
-                
+
                 sqlCommand.Parameters.AddWithValue("@RES_CODIGO", pago.RES_CODIGO);
                 sqlCommand.Parameters.AddWithValue("@PAG_FECHA", pago.PAG_FECHA);
-                sqlCommand.Parameters.AddWithValue("@PAG_TIPO", pago.PAG_TIPO);
                 sqlCommand.Parameters.AddWithValue("@TPA_CODIGO", pago.TPA_CODIGO);
                 sqlCommand.Parameters.AddWithValue("@PAG_ESTADO", pago.PAG_ESTADO);
-                
+
 
                 sqlConnection.Open();
 
@@ -161,7 +159,6 @@ namespace WebApplication1.Controllers
 
             return resultado;
         }
-
 
 
 
@@ -197,14 +194,12 @@ namespace WebApplication1.Controllers
                                                         
                                                            RES_CODIGO   = @RES_CODIGO,
                                                           PAG_FECHA= @PAG_FECHA,
-                                                           PAG_TIPO =@PAG_TIPO,
                                                                TPA_CODIGO = @TPA_CODIGO,
                                                                   PAG_ESTADO = @PAG_ESTADO
                                                                    WHERE PAG_CODIGO=@PAG_CODIGO", sqlConnection);
                 sqlCommand.Parameters.AddWithValue("@PAG_CODIGO", pago.PAG_CODIGO);
                 sqlCommand.Parameters.AddWithValue("@RES_CODIGO", pago.RES_CODIGO);
                 sqlCommand.Parameters.AddWithValue("@PAG_FECHA", pago.PAG_FECHA);
-                sqlCommand.Parameters.AddWithValue("@PAG_TIPO", pago.PAG_TIPO);
                 sqlCommand.Parameters.AddWithValue("@TPA_CODIGO", pago.TPA_CODIGO);
                 sqlCommand.Parameters.AddWithValue("@PAG_ESTADO", pago.PAG_ESTADO);
                 
